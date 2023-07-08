@@ -122,7 +122,7 @@ const Navbar = ({ current, setCurrent }) => {
             </ul>
           </div>
 
-          <a href='../resume/index.html' className=''><motion.button className='hidden absolute text-white bg-transparent border-[3px] bottom-[1.65rem] border-[#ADFFFF] w-40 p-[0.4rem] right-10 text-xl rounded-lg font-semibold
+          <a href='https://drive.google.com/drive/folders/1aJeWTzFzWeAsvZsjqmajKfc3na8GX_4S' className=''><motion.button className='hidden absolute text-white bg-transparent border-[3px] bottom-[1.65rem] border-[#ADFFFF] w-40 p-[0.4rem] right-10 text-xl rounded-lg font-semibold
           lg:block md:hover:text-black 
           lg:mx-0 lg:text-center '
             initial={{ opacity: 0, }}
@@ -188,7 +188,7 @@ const Navbar = ({ current, setCurrent }) => {
             </li>
 
             <li>
-            <a href='../resume/index.html' className=''><motion.button className='py-4 pl-8 w-full text-white border-y-[1px] border-[#ADFFFF] font-semibold bg-[#fcffff] bg-opacity-10 text-left
+            <a href='https://drive.google.com/drive/folders/1aJeWTzFzWeAsvZsjqmajKfc3na8GX_4S' className=''><motion.button className='py-4 pl-8 w-full text-white border-y-[1px] border-[#ADFFFF] font-semibold bg-[#fcffff] bg-opacity-10 text-left
               lg:hidden
               ' 
                 initial={{ opacity: 0, }}
