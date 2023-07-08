@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/adportfolio/static/css/main.e2de5c53.css",
+    "main.js": "/adportfolio/static/js/main.1169505f.js",
+    "static/js/787.f98fd99e.chunk.js": "/adportfolio/static/js/787.f98fd99e.chunk.js",
+    "static/media/heroSection.jpg": "/adportfolio/static/media/heroSection.2815ebc9bf12d4cd6b04.jpg",
+    "static/media/Forecast.jpg": "/adportfolio/static/media/Forecast.fb348aea9b430c92c795.jpg",
+    "static/media/Yoga-Retreat.jpg": "/adportfolio/static/media/Yoga-Retreat.29a88f1f3b1574803917.jpg",
+    "static/media/potrait.jpg": "/adportfolio/static/media/potrait.a6fc0028b6f297488823.jpg",
+    "static/media/skills.svg": "/adportfolio/static/media/skills.6461ed381566b21f4ee859e274da8993.svg",
+    "static/media/logo.svg": "/adportfolio/static/media/logo.942031f052c3af607c6e8276ca793bcd.svg",
+    "index.html": "/adportfolio/index.html",
+    "static/media/forFun.svg": "/adportfolio/static/media/forFun.1c527a0d45a816f4557754aeab55a9e9.svg",
+    "static/media/line.svg": "/adportfolio/static/media/line.2f9dc0f6e9bd6107006ac5a1c1a69571.svg",
+    "static/media/line2.svg": "/adportfolio/static/media/line2.1ad9d2821580e16c3c76989e10ae79a2.svg",
+    "main.e2de5c53.css.map": "/adportfolio/static/css/main.e2de5c53.css.map",
+    "main.1169505f.js.map": "/adportfolio/static/js/main.1169505f.js.map",
+    "787.f98fd99e.chunk.js.map": "/adportfolio/static/js/787.f98fd99e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e2de5c53.css",
+    "static/js/main.1169505f.js"
+  ]
+}
