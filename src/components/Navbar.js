@@ -4,7 +4,7 @@ import { Link } from 'react-scroll';
 import logo from '../assets/logo.svg';
 import { FaBars } from 'react-icons/fa';
 
-const Navbar = () => {
+const Navbar = ({ current, setCurrent }) => {
   const [active, setActive] = useState('home');
   const [navActive, setNavActive] = useState(false)
   const ref = useRef(null);
@@ -15,7 +15,9 @@ const Navbar = () => {
     const handleObserver = (entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActive(entry.target.id);
+          const targetId = entry.target.id;
+          // Update the current tab based on the targetId
+          setCurrent(targetId);
         }
       });
     };
@@ -26,14 +28,22 @@ const Navbar = () => {
       threshold: 0.5, // Adjust the threshold as needed
     });
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    const sectionIds = ['heroComponent', 'aboutComponent', 'projectComponent', 'experienceComponent', 'contactComponent'];
+
+    sectionIds.forEach((id) => {
+      const targetSection = document.getElementById(id);
+      if (targetSection) {
+        observer.observe(targetSection);
+      }
+    });
 
     return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
+      sectionIds.forEach((id) => {
+        const targetSection = document.getElementById(id);
+        if (targetSection) {
+          observer.unobserve(targetSection);
+        }
+      });
     };
   }, []);
 
@@ -70,45 +80,40 @@ const Navbar = () => {
           <div className="here">
             <ul className="hidden text-white text-[1.08rem] font-medium lg:flex">
               <li
-                className={`px-6 cursor-pointer ${
-                  active === 'home' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
-                }`}
+                className={`px-6 cursor-pointer hover:text-[#ADFFFF] ${current === 'heroComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+                  }`}
               >
                 <Link to="heroComponent" smooth={true} duration={500}>
                   Home
                 </Link>
               </li>
               <li
-                className={`px-6 cursor-pointer ${
-                  active === 'aboutComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
-                }`}
+                className={`px-6 cursor-pointer hover:text-[#ADFFFF] ${current === 'aboutComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+                  }`}
               >
                 <Link to="aboutComponent" smooth={true} duration={500}>
                   About
                 </Link>
               </li>
               <li
-                className={`px-6 cursor-pointer ${
-                  active === 'projectComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
-                }`}
+                className={`px-6 cursor-pointer hover:text-[#ADFFFF] ${current === 'projectComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+                  }`}
               >
                 <Link to="projectComponent" smooth={true} duration={500}>
                   Projects
                 </Link>
               </li>
               <li
-                className={`px-6 cursor-pointer ${
-                  active === 'experienceComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
-                }`}
+                className={`px-6 cursor-pointer hover:text-[#ADFFFF] ${current === 'experienceComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+                  }`}
               >
                 <Link to="experienceComponent" smooth={true} duration={500}>
                   Experience
                 </Link>
               </li>
               <li
-                className={`px-6 cursor-pointer ${
-                  active === 'contactComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
-                }`}
+                className={`px-6 cursor-pointer hover:text-[#ADFFFF] ${current === 'contactComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+                  }`}
               >
                 <Link to="contactComponent" smooth={true} duration={500}>
                   Contact
@@ -116,6 +121,16 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
+
+          <motion.button className='hidden absolute text-white bg-transparent border-[3px] border-[#ADFFFF] w-40 p-[0.4rem] right-10 text-xl rounded-lg font-semibold
+          lg:block md:hover:text-black 
+          lg:mx-0 lg:text-center '
+            initial={{ opacity: 0, }}
+            animate={{ opacity: 1, }}
+            transition={{ duration: 0.7 }}
+            whileHover={{ backgroundColor: '#ADFFFF', transition: { duration: 0.1 } }}
+          > Resume
+          </motion.button>
 
           <FaBars
             size={30}
@@ -132,11 +147,58 @@ const Navbar = () => {
           animate={animation}
         >
           <ul className="text-white pt-20">
-            <li className="py-4 pl-8 underline underline-offset-4 decoration-solid text-[#ADFFFF]">Home</li>
-            <li className="py-4 pl-8">About</li>
-            <li className="py-4 pl-8">Projects</li>
-            <li className="py-4 pl-8">Experience</li>
-            <li className="py-4 pl-8">Contact</li>
+            <li className={`py-4 pl-8 cursor-pointer hover:text-[#ADFFFF] ${current === 'heroComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+              }`}
+            >
+              <Link to="heroComponent" smooth={true} duration={500}>
+                Home
+              </Link>
+            </li>
+
+            <li className={`py-4 pl-8 cursor-pointer hover:text-[#ADFFFF] ${current === 'aboutComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+              }`}
+            >
+              <Link to="aboutComponent" smooth={true} duration={500}>
+                About
+              </Link>
+            </li>
+
+            <li className={`py-4 pl-8 cursor-pointer hover:text-[#ADFFFF] ${current === 'projectComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+              }`}
+            >
+              <Link to="projectComponent" smooth={true} duration={500}>
+                Projects
+              </Link>
+            </li>
+
+            <li className={`py-4 pl-8 cursor-pointer hover:text-[#ADFFFF] ${current === 'experienceComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+              }`}
+            >
+              <Link to="experienceComponent" smooth={true} duration={500}>
+                Experience
+              </Link>
+            </li>
+
+            <li className={`py-4 pl-8 cursor-pointer hover:text-[#ADFFFF] ${current === 'contactComponent' ? 'underline underline-offset-4 decoration-solid text-[#ADFFFF]' : ''
+              }`}
+            >
+              <Link to="contactComponent" smooth={true} duration={500}>
+                Contact
+              </Link>
+            </li>
+
+            <li>
+              <motion.button className='py-4 pl-8 w-full text-white border-[1px] font-bold bg-[#ADFFFF] text-left
+              lg:hidden
+              ' 
+                initial={{ opacity: 0, }}
+                animate={{ opacity: 1, }}
+                transition={{ duration: 0.7 }}
+                whileHover={{ backgroundColor: '#ADFFFF', transition: { duration: 0.1 } }}
+              > Resume
+              </motion.button>
+            </li>
+
           </ul>
         </motion.div>
       </div>

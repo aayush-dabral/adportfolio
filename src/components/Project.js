@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
+import { motion, useAnimation, useInView } from 'framer-motion'
 
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
@@ -10,6 +11,31 @@ import Forecast from '../assets/Forecast.jpg'
 
 const Project = () => {
 
+  const firstLineRef = useRef(null);
+  const secondLineRef = useRef(null)
+  const isFirstLineInView = useInView(firstLineRef)
+  const isSecondLineInView = useInView(secondLineRef)
+
+  const mainControl = useAnimation();
+
+  const leftLineVariants = {
+    hidden: { clipPath: "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%" },
+    visible: { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
+  }
+
+  const rightLineVariants = {
+    hidden: { clipPath: "polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%)" },
+    visible: { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
+  }
+
+  useEffect(() => {
+    if (isFirstLineInView) {
+      mainControl.start("visible")
+    }
+    if (isSecondLineInView) {
+      mainControl.start("visible")
+    }
+  }, [isFirstLineInView, isSecondLineInView])
 
   const slides = [
 
@@ -26,7 +52,7 @@ const Project = () => {
           <div className='w-full h-full relative '>
             <img src={Yoga} alt='yoga' className='absolute w-[86%] h-[86%] left-1/2 transform -translate-x-1/2 -bottom-2 ' />
           </div>
-          
+
         </div>
         <div className='mx-[16%] mt-3
         lg:w-[85%] lg:mr-3 lg:ml-[15%]
@@ -37,10 +63,17 @@ const Project = () => {
 
             <div className='flex lg:w-[65%]'>
 
-              <div className='w-[70%] h-0 border-[1px] border-[#ffffff] mt-4
+              <motion.div className='w-[70%] h-0 border-[1px] border-[#ffffff] mt-4
             sm:w-[80%]
             lg:w-[80%]
-            xl:w-[84%]' />
+            xl:w-[84%]'
+
+                ref={secondLineRef}
+                variants={rightLineVariants}
+                initial="hidden"
+                animate={mainControl}
+                style={{ overflow: "hidden" }}
+              />
               <AiFillGithub className='w-7 h-7 ml-4' />
               <TbExternalLink className='w-7 h-7 ml-4' />
 
@@ -67,21 +100,28 @@ const Project = () => {
         lg:w-[85%] lg:ml-5 
         xl:w-[78%] xl:mt-6'>
 
-        <div className='lg:flex'>
-          <h2 className='text-white font-bold
+          <div className='lg:flex'>
+            <h2 className='text-white font-bold
           lg:w-[30%]'>Forecasty.....</h2>
 
-          <div className='flex lg:w-[65%]'>
+            <div className='flex lg:w-[65%]'>
 
-            <div className='w-[70%] h-0 border-[1px] border-[#ffffff] mt-4
+              <motion.div className='w-[70%] h-0 border-[1px] border-[#ffffff] mt-4
             sm:w-[80%]
-            lg:w-[77%]' />
-            <AiFillGithub className='w-7 h-7 ml-4' />
-            <TbExternalLink className='w-7 h-7 ml-4' />
+            lg:w-[77%]'
+
+                ref={secondLineRef}
+                variants={rightLineVariants}
+                initial="hidden"
+                animate={mainControl}
+                style={{ overflow: "hidden" }}
+              />
+              <AiFillGithub className='w-7 h-7 ml-4' />
+              <TbExternalLink className='w-7 h-7 ml-4' />
+
+            </div>
 
           </div>
-
-        </div>
 
           <p className='text-[#ADFFFF] font-semibold mt-3 mb-3
           lg:mt-5 lg:mb-5'>ReactJS - Bootstrap - Axios - NodeJs</p>
@@ -112,10 +152,17 @@ const Project = () => {
 
             <div className='flex lg:w-[65%]'>
 
-              <div className='w-[70%] h-0 border-[1px] border-[#ffffff] mt-4
+              <motion.div className='w-[70%] h-0 border-[1px] border-[#ffffff] mt-4
             sm:w-[80%]
             lg:w-[80%]
-            xl:w-[84%]' />
+            xl:w-[84%]'
+
+                ref={secondLineRef}
+                variants={rightLineVariants}
+                initial="hidden"
+                animate={mainControl}
+                style={{ overflow: "hidden" }}
+              />
               <AiFillGithub className='w-7 h-7 ml-4' />
               <TbExternalLink className='w-7 h-7 ml-4' />
 
@@ -154,22 +201,36 @@ const Project = () => {
     sm:h-[87rem]
     lg:h-[55rem]
     xl:h-[65rem]'>
-      <div className=''>
-        <div className='hidden
+      <div className='lg:flex lg:justify-center lg:items-center lg:rounded-full'>
+        <motion.div className='hidden 
+        lg:block lg:w-[30%] lg:h-[3px] lg:bg-white lg:mt-10
         '
+          ref={firstLineRef}
+          variants={leftLineVariants}
+          initial="hidden"
+          animate={mainControl}
+          style={{ overflow: "hidden" }}
         />
 
-        <div className='text-white text-6xl text-center font-bold underline underline-offset-8 mt-6'>
+        <div className='text-white text-6xl text-center font-bold underline underline-offset-8 mt-6 mx-7
+        lg:no-underline'
+        >
           Project
         </div>
 
-        <div className='hidden
+        <motion.div className='hidden 
+        lg:block lg:w-[30%] lg:h-[3px] lg:bg-white lg:mt-10 lg:rounded-full
         '
+          ref={firstLineRef}
+          variants={rightLineVariants}
+          initial="hidden"
+          animate={mainControl}
+          style={{ overflow: "hidden" }}
         />
       </div>
 
 
-      <div className='w-[100%] h-[580px] m-auto py-16 px-2 relative'>
+      <div className='w-[100%] h-[580px] m-auto py-16 px-2 relative '>
         {/* content */}
         <div className='w-full h-full rounded-2xl bg-center bg-cover transition-transform duration-500'>
           {slides[currentIndex]}
@@ -192,10 +253,10 @@ const Project = () => {
             <div
               key={slideIndex}
               onClick={() => goToSlide(slideIndex)}
-              className= {`text-2xl  cursor-pointer `}
+              className={`text-2xl  cursor-pointer `}
             >
 
-              <RxDotFilled className={`${slideIndex === currentIndex ? 'text-[#ADFFFF] -mt-[0.32rem]':'text-white'}`} size={`${slideIndex === currentIndex ? 30:20}`}/>
+              <RxDotFilled className={`${slideIndex === currentIndex ? 'text-[#ADFFFF] -mt-[0.32rem]' : 'text-white'}`} size={`${slideIndex === currentIndex ? 30 : 20}`} />
             </div>
           ))}
         </div>

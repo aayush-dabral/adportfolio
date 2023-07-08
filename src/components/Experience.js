@@ -7,13 +7,24 @@ const Experience = () => {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true })
 
+    const lineRef = useRef(null)
+
     const mainControls = useAnimation()
-    const slideControls = useAnimation()
+
+    const revealVariants = {
+        hidden: { clipPath: "polygon(100% 0%, 100% 100%, 100% 100%, 100% 0%" },
+        visible: { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
+    };
 
     useEffect(() => {
         if (isInView) {
             mainControls.start("visible")
-            slideControls.start("visible")
+        }
+    }, [isInView])
+
+    useEffect(() => {
+        if (isInView) {
+            mainControls.start("visible")
         }
     }, [isInView])
 
@@ -21,13 +32,20 @@ const Experience = () => {
         <div id="experienceComponent" className='mb-10'>
             <div className='w-full h-56 relative' ref={ref}>
 
-                <img src={line2} alt='line' className='absolute z-10 rounded-3xl
+                <motion.img src={line2} alt='line' className='absolute z-10 rounded-3xl
                     top-[14rem] left-[10%]
                     md:left-[4%] md:right-[49%] md:w-[46%] md:top-[10.5rem] 
                     min-[940px]:w-[52%] min-[940px]:left-[8%]
                     lg:left-[10%] lg:w-[53%]
                     xl:w-[56%]
                     2xl:w-[60%]'
+
+                    ref={lineRef}
+                    variants={revealVariants}
+                    initial="hidden"
+                    animate={mainControls}
+                    style={{ overflow: "hidden" }}
+                    transition={{duration: 0.5, delay: 0.3}}
                 />
 
                 <motion.div

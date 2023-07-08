@@ -1,11 +1,28 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react'
 
-import { motion } from 'framer-motion'
+import { motion, useInView, useAnimation } from 'framer-motion'
 
 import heroImage from '../assets/heroSection.jpg'
 import line from '../assets/line.svg'
 
 const HeroSection = () => {
+
+  const lineRef = useRef(null)
+  const isInView = useInView(lineRef)
+
+  const mainControl = useAnimation();
+
+  const revealVariants = {
+    hidden: { clipPath: "polygon(0% 0%, 0% 100%, 0% 100%, 0% 0%)" },
+    visible: { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
+  };
+
+  useEffect(() => {
+    if(isInView){
+      mainControl.start("visible")
+    }
+  }, [isInView])
+
   return (
     <section id="heroComponent" className='relative bg-cover bg-center h-screen bg-black z-10 mb-10' style={{ backgroundImage: `url(${heroImage})` }}>
       <div className='absolute text-white leading-10 top-[16rem] font-inter w-fit
@@ -28,9 +45,13 @@ const HeroSection = () => {
 
         <motion.img src={line} className='mt-2 mx-auto w-[80%] 
         lg:mx-0 lg:w-[166px] lg:h-[7px]' alt='line'
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7 }}
+          
+          ref={lineRef}
+          variants={revealVariants}
+          intitial = "hidden"
+          animate = {mainControl}
+          transition={{duration: 0.5, delay: 0.1}}
+          style={{overflow: "hidden"}}
         />
 
         <motion.div className='mt-5 font-light drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]

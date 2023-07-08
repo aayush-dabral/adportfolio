@@ -10,10 +10,24 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter var', ],
+        inter: ['Inter var',],
+      },
+      dropShadow: {
+        glow: [
+          "0 0px 10px rgba(255,255, 255, 0.35)",
+          "0 0px 25px rgba(255, 255,255, 0.2)",
+        ],
+      },
+      screens: {
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+        semiXl: "1180px",
+        xl: "1280px",
+        "2xl": "1536px",
       },
     },
   },
-  plugins: [],
+plugins: [],
 }
 
