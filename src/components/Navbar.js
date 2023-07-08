@@ -122,7 +122,7 @@ const Navbar = ({ current, setCurrent }) => {
             </ul>
           </div>
 
-          <motion.button className='hidden absolute text-white bg-transparent border-[3px] border-[#ADFFFF] w-40 p-[0.4rem] right-10 text-xl rounded-lg font-semibold
+          <a href='../resume/Aayush_Dabral_CV.pdf' className=''><motion.button className='hidden absolute text-white bg-transparent border-[3px] bottom-[1.65rem] border-[#ADFFFF] w-40 p-[0.4rem] right-10 text-xl rounded-lg font-semibold
           lg:block md:hover:text-black 
           lg:mx-0 lg:text-center '
             initial={{ opacity: 0, }}
@@ -130,7 +130,7 @@ const Navbar = ({ current, setCurrent }) => {
             transition={{ duration: 0.7 }}
             whileHover={{ backgroundColor: '#ADFFFF', transition: { duration: 0.1 } }}
           > Resume
-          </motion.button>
+          </motion.button></a>
 
           <FaBars
             size={30}
@@ -188,7 +188,7 @@ const Navbar = ({ current, setCurrent }) => {
             </li>
 
             <li>
-              <motion.button className='py-4 pl-8 w-full text-white border-[1px] font-bold bg-[#ADFFFF] text-left
+            <a href='../resume/Aayush_Dabral_CV.pdf' className=''><motion.button className='py-4 pl-8 w-full text-white border-y-[1px] border-[#ADFFFF] font-semibold bg-[#fcffff] bg-opacity-10 text-left
               lg:hidden
               ' 
                 initial={{ opacity: 0, }}
@@ -197,7 +197,9 @@ const Navbar = ({ current, setCurrent }) => {
                 whileHover={{ backgroundColor: '#ADFFFF', transition: { duration: 0.1 } }}
               > Resume
               </motion.button>
+            </a>
             </li>
+            
 
           </ul>
         </motion.div>
