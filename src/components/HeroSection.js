@@ -1,4 +1,5 @@
 import React, {useRef, useEffect} from 'react'
+import { Link } from 'react-scroll'
 
 import { motion, useInView, useAnimation } from 'framer-motion'
 
@@ -29,7 +30,7 @@ const HeroSection = () => {
         text-[1.5rem] font-medium text-center items-center
         lg:left-[12.5%] lg:text-left lg:top-[18rem]'>
 
-        <motion.div className='lg:ml-4'
+        <motion.div className='lg:ml-4 font-medium'
           initial={{ opacity: 0, y: -75 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -54,13 +55,16 @@ const HeroSection = () => {
           style={{overflow: "hidden"}}
         />
 
-        <motion.div className='mt-5 font-light drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]
+        <motion.div className='mt-5 font-medium drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] text-white 
             text-[1.5rem] mx-4
-            lg:w-2/3 lg:mx-0'
+            lg: lg:mx-0'
           initial={{ opacity: 0, y: 75 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-        >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur odio tenetur eligendi qui porro rerum fuga dolores quas.</motion.div>
+        > 
+        Building Dreams in Code | <span className='text-[#ADFFFF] font-medium '>Full Stack Developer & Freelance Enthusiast </span><br/>
+        <span className='text-white'>Focused on crafting clean and user-friendly experiences.</span>
+        </motion.div>
   
         <motion.button className='text-[#ADFFFF] border-2 border-[#ADFFFF] w-44 p-[0.6rem] mx-auto mt-5 text-xl md:hover:text-black
         lg:mx-0 lg:text-center bg-transparent'
@@ -68,7 +72,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
           whileHover={{ backgroundColor: '#ADFFFF', transition: {duration: 0.1}}}
-        > About me
+        > 
+        <Link to="aboutComponent" smooth={true} duration={500}>About me</Link>
         </motion.button>
       </div>
     </section>

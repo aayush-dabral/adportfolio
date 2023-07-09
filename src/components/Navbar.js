@@ -122,7 +122,7 @@ const Navbar = ({ current, setCurrent }) => {
             </ul>
           </div>
 
-          <a href='https://drive.google.com/file/d/1D47FV9hKNmI9-iJ2RWowzctMTp8L8-lM/view?usp=drive_link' className=''><motion.button className='hidden absolute text-white bg-transparent border-[3px] bottom-[1.65rem] border-[#ADFFFF] w-40 p-[0.4rem] right-10 text-xl rounded-lg font-semibold
+          <a href='https://drive.google.com/file/d/1MN-fPqfl6jO7oeQa75eeJ61o9oOxtddq/view?usp=drive_link' target='_blank' className=''><motion.button className='hidden absolute text-white bg-transparent border-[3px] bottom-[1.65rem] border-[#ADFFFF] w-40 p-[0.4rem] right-10 text-xl rounded-lg font-semibold
           lg:block md:hover:text-black 
           lg:mx-0 lg:text-center '
             initial={{ opacity: 0, }}

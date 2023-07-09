@@ -41,8 +41,8 @@ const Contact = () => {
                         md:ml-4'>
                             {/* Mail  */}
                             <HiMail size={30} className='text-[#ADFFFF]' />
-                            <p className='text-white 
-                            min-[550px]:ml-6'>aayush05dabral@gmail.com</p>
+                            <a href='mailto:aayush05dabral@gmail.com' target='_blank' ><p className='text-white hover:underline hover:underline-offset-4
+                            min-[550px]:ml-6'>aayush05dabral@gmail.com</p></a>
                         </div>
 
                         <div className='ml-4 mr-4 mt-10 flex flex-col items-center
@@ -50,8 +50,8 @@ const Contact = () => {
                         md:ml-4'>
                             {/* Linkedin  */}
                             <AiFillLinkedin size={30} className='text-[#ADFFFF]' />
-                            <p className='text-white 
-                            min-[550px]:ml-6'>@aayush-dabral</p>
+                            <a href='https://www.linkedin.com/in/aayush-dabral-1403861b0/' target='_blank' ><p className='text-white hover:underline hover:underline-offset-4
+                            min-[550px]:ml-6'>@aayush-dabral</p></a>
                         </div>
 
                         <div className='ml-4 mr-4 mt-10 mb-8 flex flex-col items-center
@@ -59,17 +59,17 @@ const Contact = () => {
                         md:ml-4'>
                             {/* Instagram  */}
                             <AiFillInstagram size={30} className='text-[#ADFFFF]' />
-                            <p className='text-white 
+                            <p className='text-white hover:underline hover:underline-offset-4 cursor-pointer
                             min-[550px]:ml-6'>@aayush.__.dabral</p>
                         </div>
 
                     </div>
-                    <div className='bg-[#ADFFFF] text-black mt-4 mb-4 px-4 py-1 self-center rounded-md text-lg font-medium
+                    <a href='mailto:aayush05dabral@gmail.com' className='bg-[#ADFFFF] hover:bg-opacity-60 hover:text-white text-black mt-4 mb-4 px-4 py-1 self-center rounded-md text-lg font-medium
                     md:self-end md:mr-[5%]
-                    lg:mr-[10%]'>
+                    lg:mr-[10%]'><div className=''>
                         {/* Chat  */}
                         <p>Let's Chat</p>
-                    </div>
+                    </div></a> 
                 </div>
                 <div className='w-[80%] h-full rounded-3xl overflow-hidden'>
                     {/* Image  */}

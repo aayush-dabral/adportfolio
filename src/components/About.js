@@ -95,8 +95,8 @@ const About = () => {
                         <p className='text-[#ADFFFF] font-medium underline underline-offset-4'>My Links</p>
                         <BiRightArrowAlt size={30} className='text-[#ADFFFF] ml-1'/>
 
-                        <a href="https://github.com/aayush-dabral"><AiFillGithub size={28} className='hover:text-[#ADFFFF] ml-4 mr-3 cursor-pointer'/></a>
-                        <a href="https://www.linkedin.com/in/aayush-dabral-1403861b0/"><AiFillLinkedin size={28} className='hover:text-[#ADFFFF] cursor-pointer'/></a>
+                        <a href="https://github.com/aayush-dabral" target='_blank' ><AiFillGithub size={28} className='hover:text-[#ADFFFF] ml-4 mr-3 cursor-pointer'/></a>
+                        <a href="https://www.linkedin.com/in/aayush-dabral-1403861b0/" target='_blank' ><AiFillLinkedin size={28} className='hover:text-[#ADFFFF] cursor-pointer'/></a>
                         
                     </div>
                 </motion.div>
@@ -148,7 +148,6 @@ const About = () => {
                             <span className='py-[0.185rem] px-3 bg-[#1e1e1e] rounded-3xl text-xl font-semibold ml-3 mb-3'>Pandas</span>
                             <span className='py-[0.185rem] px-3 bg-[#1e1e1e] rounded-3xl text-xl font-semibold ml-3 mb-3'>Numpy</span>
                             <span className='py-[0.185rem] px-3 bg-[#1e1e1e] rounded-3xl text-xl font-semibold ml-3 mb-3'>Predictive Modeling</span>
-                            <span className='py-[0.185rem] px-3 bg-[#1e1e1e] rounded-3xl text-xl font-semibold ml-3 mb-3'>Numpy</span>
                             <span className='py-[0.185rem] px-3 bg-[#1e1e1e] rounded-3xl text-xl font-semibold ml-3 mb-3'>SQL</span>
                             <span className='py-[0.185rem] px-3 bg-[#1e1e1e] rounded-3xl text-xl font-semibold ml-3 mb-3'>MySQL</span>
                             <span className='py-[0.185rem] px-3 bg-[#1e1e1e] rounded-3xl text-xl font-semibold ml-3 mb-3'>Material-UI</span>

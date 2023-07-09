@@ -8,6 +8,7 @@ import { TbExternalLink } from 'react-icons/tb';
 
 import Yoga from '../assets/Yoga-Retreat.jpg'
 import Forecast from '../assets/Forecast.jpg'
+import CodePlayer from '../assets/CodePlayer.jpg'
 
 const Project = () => {
 
@@ -15,6 +16,11 @@ const Project = () => {
   const secondLineRef = useRef(null)
   const isFirstLineInView = useInView(firstLineRef)
   const isSecondLineInView = useInView(secondLineRef)
+
+  const slide1Ref = useRef(null)
+  const slide2Ref = useRef(null)
+  const isSlide1InView = useInView(slide1Ref, { once: true })
+  const isSlide2InView = useInView(slide2Ref)
 
   const mainControl = useAnimation();
 
@@ -28,6 +34,11 @@ const Project = () => {
     visible: { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)" },
   }
 
+  const slideVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 }
+  }
+
   useEffect(() => {
     if (isFirstLineInView) {
       mainControl.start("visible")
@@ -35,16 +46,34 @@ const Project = () => {
     if (isSecondLineInView) {
       mainControl.start("visible")
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFirstLineInView, isSecondLineInView])
+
+  useEffect(() => {
+    if (isSlide1InView) {
+      mainControl.start("visible")
+    }
+    if (isSlide2InView) {
+      mainControl.start("visible")
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSlide1InView, isSlide2InView])
 
   const slides = [
 
-    <div className='text-white text-xl
+    <motion.div className='text-white text-xl
     sm:text-2xl
     lg:flex lg:text-xl
-    xl:text-2xl'>
+    xl:text-2xl'
 
-      <div className='lg:mt-16 lg:mr-0 lg:w-[50%] '>
+      variants={slideVariants}
+      initial="hidden"
+      animate="visible"
+      transition={{ duration: 0.25 }}
+    >
+
+      <motion.div className='lg:mt-16 lg:mr-0 lg:w-[50%] '
+      >
         <div className='bg-black w-[70%] rounded-[1.8rem] h-44 mx-auto overflow-hidden
         sm:h-64
         lg:w-[85%] lg:mr-3 
@@ -74,20 +103,23 @@ const Project = () => {
                 animate={mainControl}
                 style={{ overflow: "hidden" }}
               />
-              <AiFillGithub className='w-7 h-7 ml-4' />
-              <TbExternalLink className='w-7 h-7 ml-4' />
+              <a href='https://github.com/aayush-dabral/yoga-retreat-react-app' target="_blank"><AiFillGithub className='w-7 h-7 ml-4' /></a>
+              <a href='https://demo-yoga-retreat.netlify.app/' target="_blank"><TbExternalLink className='w-7 h-7 ml-4' /></a>
 
             </div>
           </div>
           <p className='text-[#ADFFFF] font-semibold mt-3 mb-3
           lg:mt-5 lg:mb-5'>ReactJS - Tailwind CSS - NodeJs</p>
 
-          <p>A comprehensive online platform for booking rejuvenating yoga retreats worldwide. <span className='text-[#ADFFFF]'>Learn more...</span> </p>
+          <p>A comprehensive online platform for booking rejuvenating yoga retreats worldwide.</p>
         </div>
-      </div>
+      </motion.div>
 
-      <div className='mt-20
-      lg:mt-16 lg:mr-0 lg:w-[50%]'>
+      <motion.div className='mt-20
+      lg:mt-16 lg:mr-0 lg:w-[50%]'
+
+        
+      >
         <div className='bg-black w-[70%] rounded-[1.8rem] h-44 mx-auto overflow-hidden
         sm:h-64
         lg:w-[85%] lg:ml-3
@@ -116,7 +148,7 @@ const Project = () => {
                 animate={mainControl}
                 style={{ overflow: "hidden" }}
               />
-              <AiFillGithub className='w-7 h-7 ml-4' />
+              <a href='https://github.com/aayush-dabral/Forcasty--News-and-Weather-Forecast-application-' target='_blank'><AiFillGithub className='w-7 h-7 ml-4' /></a>
               <TbExternalLink className='w-7 h-7 ml-4' />
 
             </div>
@@ -126,29 +158,34 @@ const Project = () => {
           <p className='text-[#ADFFFF] font-semibold mt-3 mb-3
           lg:mt-5 lg:mb-5'>ReactJS - Bootstrap - Axios - NodeJs</p>
 
-          <p>A comprehensive online weather and news forecast platform. <span className='text-[#ADFFFF]'>Learn more...</span> </p>
+          <p>A comprehensive online weather and news forecast platform. </p>
         </div>
-      </div>
-    </div>,
-
+      </motion.div>
+    </motion.div>,
 
     <div className='text-white  text-xl
     sm:text-2xl
     lg:flex lg:text-xl
     xl:text-2xl'>
-      <div className='lg:mt-16 lg:mr-0 lg:w-[50%] '>
+      <motion.div className='lg:mt-16 lg:mr-0 lg:w-[50%] '
+        variants={slideVariants}
+        initial="hidden"
+        animate="visible"
+        transition={{ duration: 0.25 }}>
         <div className='bg-black w-[70%] rounded-[1.8rem] h-44 mx-auto
         sm:h-64
         lg:w-[85%] lg:mr-3 
         xl:h-[350px] xl:w-[78%] '>
-
+          <div className='w-full h-full relative overflow-hidden'>
+            <img src={CodePlayer} alt='yoga' className='absolute w-[86%] h-[86%] left-1/2 transform -translate-x-1/2 -bottom-2 ' />
+          </div>
         </div>
         <div className='mx-[16%] mt-3
         lg:w-[85%] lg:mr-3 lg:ml-[15%]
         xl:w-[78%] xl:ml-[21%] xl:mt-6'>
           <div className='lg:flex'>
             <h2 className='text-white font-bold
-            lg:w-[30%]'>Yoga Retreat</h2>
+            lg:w-[30%]'>Code Player</h2>
 
             <div className='flex lg:w-[65%]'>
 
@@ -163,17 +200,17 @@ const Project = () => {
                 animate={mainControl}
                 style={{ overflow: "hidden" }}
               />
-              <AiFillGithub className='w-7 h-7 ml-4' />
+              <a href='https://github.com/aayush-dabral/Code-Player' target='_blank'><AiFillGithub className='w-7 h-7 ml-4' /></a> 
               <TbExternalLink className='w-7 h-7 ml-4' />
-
+              <AiFillGithub className='w-7 h-7 ml-4' />
             </div>
           </div>
           <p className='text-[#ADFFFF] font-semibold mt-3 mb-3
-          lg:mt-5 lg:mb-5'>ReactJS - Tailwind CSS - NodeJs</p>
+          lg:mt-5 lg:mb-5'>HTML - CSS - Javascript - jQuery</p>
 
-          <p>A comprehensive online platform for booking rejuvenating yoga retreats worldwide. <span className='text-[#ADFFFF]'>Learn more...</span> </p>
+          <p>An online IDE constructed for providing a user-friendly interface enabling users to write, edit, and run code in real-time.</p>
         </div>
-      </div>
+      </motion.div>
     </div>
 
   ]
