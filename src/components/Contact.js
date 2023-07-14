@@ -73,7 +73,7 @@ const Contact = () => {
                 </div>
                 <div className='w-[80%] h-full rounded-3xl overflow-hidden'>
                     {/* Image  */}
-                    <img src={potrait} alt='potrait' className='h-fit'/>
+                    <img src={potrait} alt='potrait' className=''/>
                 </div>
             </div>
         </div>
