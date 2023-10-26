@@ -10,8 +10,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        inter: ['Inter var',],
-      },
+        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+      } ,
       dropShadow: {
         glow: [
           "0 0px 10px rgba(255,255, 255, 0.35)",

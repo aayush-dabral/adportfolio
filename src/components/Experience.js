@@ -69,7 +69,7 @@ const Experience = () => {
             <div className='mt-24 text-2xl text-[#CDCDCD] border-b-[0.2px] border-[#6c6c6c] px-8 pb-8 ml-[4%] mr-[4%]
             lg:ml-[16%] lg:mr-[18.5%] '>
                 <div className='flex justify-between'>
-                    <h1 className='text-white font-extrabold mr-4'>Aayush Enterprises</h1>
+                    <h1 className='text-white font-extrabold mr-4'>AE Groups</h1>
                     <p>2023-present</p>
                 </div>
                 <div className='flex justify-between my-8'>
